@@ -1,2 +1,77 @@
-<h1>Yes</h1>
-<h3>7 cups (1.6 liters)</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Is Luke eating Lentils today?</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+  <script type="text/jsx">
+      var TodaysLentils = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <small>{this.props.date}</small>
+              <h1>{this.props.ateLentils ? "Yes" : "No"}</h1>
+              <h3>{this.props.children.toString()}</h3>
+            </div>
+          );
+        }
+      })
+
+      var LukeLentils = React.createClass({
+        getInitialState: function() {
+          return {days: []};
+        },
+        loadJson: function() {
+          $.ajax({
+            url: "api/v0.2/luke_lentils.json",
+            dataType: "json",
+            success: function(data) {
+              this.setState({days: data});
+            }.bind(this),
+            error: function(data) {
+              console.log(arguments);
+            }.bind(this)
+          });
+        },
+        componentDidMount: function() {
+          this.loadJson();
+          setInterval(this.loadJson, 3600000);
+        },
+        render: function() {
+          var nodes = this.state.days.filter(function(day) {
+            return day.date == new Date().toISOString().substring(0, 10);
+          }).map(function(today) {
+            var otherText = "";
+
+            if ( today.ateLentils ) {
+              otherText = today.cups + "cups (" + today.liters + "liters)";
+            } else {
+              otherText = "Replacement: " + today.replacement;
+            }
+
+            return (
+              <TodaysLentils ateLentils={today.ateLentils} date={today.date}>
+                {otherText}
+              </TodaysLentils>
+            );
+          });
+
+          return (
+            <div>
+              {nodes}
+            </div>
+          );
+        }
+      });
+
+      React.render(
+        <LukeLentils />,
+        document.getElementById('container')
+      );
+    </script>
+</body>

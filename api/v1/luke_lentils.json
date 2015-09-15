@@ -1,0 +1,14 @@
+{
+  "version": 0.2,
+  "results": [
+    {
+      "ateLentils": false,
+      "replacement": "Chickpeas"
+    }
+    {
+      "ateLentils": true,
+      "cups": 7,
+      "liters": 1.6
+    }
+  ]
+}

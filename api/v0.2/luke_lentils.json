@@ -1,0 +1,13 @@
+[
+  {
+    "ateLentils": false,
+    "replacement": "Chickpeas",
+    "date": "2015-09-15"
+  },
+  {
+    "ateLentils": true,
+    "cups": 7,
+    "liters": 1.6,
+    "date": "2015-09-14"
+  }
+]
