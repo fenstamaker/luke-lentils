@@ -15,7 +15,7 @@
           return (
             <div>
               <small>{this.props.date}</small>
-              <h1>{this.props.ateLentils ? "Yes" : "No"}</h1>
+              <h1>{this.props.ateLentils === null ? "Unknown" : (this.props.ateLentils ? "Yes" : "No")}</h1>
               <h3>{this.props.children.toString()}</h3>
             </div>
           );
@@ -60,6 +60,10 @@
               </TodaysLentils>
             );
           });
+
+          if ( nodes.length < 1 ) {
+            nodes = (<TodaysLentils ateLentils={null}>Have not checked with Luke</TodaysLentils>);
+          }
 
           return (
             <div>
