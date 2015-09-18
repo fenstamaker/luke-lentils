@@ -1,5 +1,10 @@
 [
   {
+    "ateLentils": false,
+    "replacement": "Haven't gone to lunch",
+    "date": "2015-09-18"
+  },
+  {
     "ateLentils": true,
     "cups": 1,
     "liters": 0.236588
