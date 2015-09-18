@@ -1,8 +1,8 @@
 [
   {
     "ateLentils": true,
-    "cups": "???",
-    "liters": "???"
+    "cups": 1,
+    "liters": 0.236588
   },
   {
     "ateLentils": false,
