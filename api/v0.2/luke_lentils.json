@@ -1,6 +1,17 @@
 [
   {
     "ateLentils": false,
+    "replacement": "Haven't gone to lunch yet",
+    "date": "2015-09-27"
+  },
+  {
+    "ateLentils": true,
+    "cups": "1 G-St.",
+    "liters": "1 G-St.",
+    "date": "2015-09-25"
+  },
+  {
+    "ateLentils": false,
     "replacement": "Haven't gone to lunch",
     "date": "2015-09-18"
   },
